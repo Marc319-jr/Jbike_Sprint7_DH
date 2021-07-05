@@ -115,8 +115,9 @@ header .header-banner .contenedor div{
         display: flex;
         flex-direction: column;
         opacity: 75%;
-
-
+        color: black;
+        text-decoration: none;
+        margin-top: 5px;
     }
 
     header .low-header .icons .icono i{

@@ -1,0 +1,50 @@
+h2{
+    color: black;
+    text-align: start;
+    margin: 15px 30px;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    opacity: 75%;
+}
+
+.catalogoCategorias{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.catalogoCategorias li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    list-style: none;
+    border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.catalogoCategorias li span{
+    font-size: 18px;
+}
+
+.catalogoCategorias li img{
+    display: none;
+}
+
+
+@media screen and (min-width:768px){
+    .catalogoCategorias li img{
+        display: flex;
+        border-radius: 10px;
+    }
+}
+
+
+@media screen and (min-width:1241px){
+
+
+
+}

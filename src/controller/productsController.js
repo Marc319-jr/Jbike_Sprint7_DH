@@ -31,6 +31,10 @@ const controller = {
         res.render('../src/views/products/carrito' , {'user' : req.session.userLogged});
     },
 
+    catalogo: (req,res) => {
+        res.render('../src/views/products/catalogo')
+    },
+
     guardar:(req,res) => {
         console.log("creando un producto");
         let archivoProductos = fs.readFileSync(file, {enconding: 'utf-8'});
