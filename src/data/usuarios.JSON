@@ -22,5 +22,13 @@
   "emailUsuario": "prueba123@gmail.com",
   "passwordUsuario": "$2a$10$V3.Lwm75Or2CZonP.iq7LeRGfHygPbGVly1nk2XJTtcg0LXoMNEL.",
   "imagen": "usuario-1623848235656.png"
+ },
+ {
+  "id": 4,
+  "nombreUsuario": "Mati Dh",
+  "genero": "Hombre",
+  "emailUsuario": "mati@bici.com",
+  "passwordUsuario": "$2a$10$3G1te83F6C49vXmapQOfJeCtnfm2yvxuTDhzlNENpTOGuW4zxeQNq",
+  "imagen": "usuario-1625525714203.jpg"
  }
 ]
