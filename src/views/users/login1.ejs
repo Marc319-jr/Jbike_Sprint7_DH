@@ -36,11 +36,12 @@
                         <% if (locals.errores && errores.email) { %>
                             <p><%= errores.email.msg %>  </p>
                         <% } %>
-                        <input type="email" name="email" placeholder="email" class="form-control" id = "email"
-                            required>
-                            <sapn class = "errorEmail"></sapn>
-                    
-                        <input type="password" name="password" placeholder="Contraseña" class="form-control" id = "password">
+                        <div class = "inputs">
+                        <input type="email" name="email" placeholder="email" class="input" id = "email">
+                        <span class = "errorEmail"></span>
+                        <input type="password" name="password" placeholder="Contraseña" class="input" id = "password">
+                        <span class = "errorPass" style="margin-bottom: 10px;"></span>
+                        </div>    
                         <label for="recordar">Recordar usuario</label>
                         <input type="checkbox" name = "recordar">
                         <br>
