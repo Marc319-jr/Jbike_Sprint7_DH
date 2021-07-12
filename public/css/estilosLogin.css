@@ -151,24 +151,6 @@ display: flex;
 
 }
 
-.form-control{
-    border-color: red;
-    border: 10px solid black;
-}
-
-
-/*validaciones*/
-
- .form-control .campoError{
-    border-color: red;
-    opacity: 1;
-}
-
- .form-control .campoCorrecto{
-    border-color: green;
-    opacity: 1;
-}
-
 
 
 

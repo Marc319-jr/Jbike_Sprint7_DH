@@ -31,38 +31,46 @@
                 <div class="ingreso">
     
                     <h3>Crear una cuenta</h3>
-                    <form action="/users/register" method="POST" enctype="multipart/form-data">
+                    <form action="/users/register" method="POST" enctype="multipart/form-data" class = "formRegister">
                         <% if (locals.errores && errores.nombreUsuario) { %>
                             <p class="error"> <%= errores.nombreUsuario.msg  %> ! </p>
                         <% } %>
-                        <input type="text" name="nombreUsuario" placeholder="Nombre y Apellido" value = "<%= locals.oldData ? oldData.nombreUsuario : null  %>" class="form-control" required>
-                        <span>Seleccione genero</span>
-                        <br>
-                        <select name="genero" class="form-control">
-                            <option value ="" >Eliga una opcion</option>
-                            <% let opciones = ['Hombre' , 'Mujer'] %>
-                            <% for(let i = 0;i<opciones.length;i++ ) { %>
-                                <option value = "<%= opciones[i] %>" <%= locals.oldData && (opciones[i] === oldData.genero) ? 'selected' : null %>> <%= opciones[i] %> </option>
-                            <% } %>
-                        </select>
-                        <% if (locals.errores && errores.genero) { %>
-                            <p class="error"> <%= errores.genero.msg  %> ! </p>
-                        <% } %>
-                   
-                        <label for = "imagen">Ingrese su imagen de perfil</label>
-                        <input type="file" name = "imagen">
+                        <div class = "inputs">
+                        <input type="text" name="nombreUsuario" placeholder="Nombre y Apellido" value = "<%= locals.oldData ? oldData.nombreUsuario : null  %>" class="input" required>
+                        <span id = "errorNombre"></span>
                         <% if (locals.errores && errores.imagen) { %>
                             <p class="error"> <%= errores.imagen.msg  %> ! </p>
                         <% } %>
-                        <input type="email" name="emailUsuario" placeholder="Correo electronico" class="form-control" required >
+                        <input type="email" name="emailUsuario" placeholder="Correo electronico" class="input" required >
+                        <span id = "errorEmail"></span>
                         <% if (locals.errores && errores.emailUsuario) { %>
                             <p class="error"> <%= errores.emailUsuario.msg  %> ! </p>
                         <% } %>
 
-                        <input type="password" name="passwordUsuario" placeholder="Contraseña" class="form-control"> 
+                        <input type="password" name="passwordUsuario" placeholder="Contraseña" class="input"> 
+                        <span id = "errorPass"></span>
                         <% if (locals.errores && errores.passwordUsuario) { %>
                             <p class="error"> <%= errores.passwordUsuario.msg  %> ! </p>
-                        <% } %>  
+                        <% } %>    
+                        <input type="password" name = "confirmarPass" placeholder="Confirme la contaseña" class = "input">
+                        <input type="text" name = "telefono" placeholder="Numero de telefono">
+                        <select name="genero" class="input">
+                            <option value ="" name  = "vacio">Seleccione tu genero</option>
+                            <% let opciones = ['Hombre' , 'Mujer'] %>
+                            <% for(let i = 0;i<opciones.length;i++ ) { %>
+                                <option value = "<%= opciones[i] %>" <%= locals.oldData && (opciones[i] === oldData.genero) ? 'selected' : null %> name = "genero"> <%= opciones[i] %>  </option>
+                            <% } %>
+                        
+                        </select>
+                    </div>
+  
+                    <% if (locals.errores && errores.genero) { %>
+                        <p class="error"> <%= errores.genero.msg  %> ! </p>
+                    <% } %>
+                    <br>
+               
+                    <label for = "imagen">Ingrese su imagen de perfil</label>
+                    <input type="file" name = "imagen">
                     <div class="buttons">
                         <a href="/index"></a>   
                             <button type = "submit" class="login-botton">
@@ -76,6 +84,7 @@
         </div>
     </div>
     </div>
+    <script src = "/js/validacion-register.js"></script>
 
 </body>
 

@@ -30,5 +30,15 @@
   "emailUsuario": "mati@bici.com",
   "passwordUsuario": "$2a$10$3G1te83F6C49vXmapQOfJeCtnfm2yvxuTDhzlNENpTOGuW4zxeQNq",
   "imagen": "usuario-1625525714203.jpg"
+ },
+ {
+  "id": 5,
+  "nombreUsuario": "Marcelo sznek",
+  "emailUsuario": "marcelo.sznek@gmail.com",
+  "passwordUsuario": "$2a$10$CO6eiIaOeWou3E59ldX2GOzhdDadxGvVF1mYX1L4ub9XQ0modkIc2",
+  "confirmarPass": "123456",
+  "telefono": "1171624859",
+  "genero": "Hombre",
+  "imagen": "usuario-1626072960103.jpg"
  }
 ]
