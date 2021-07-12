@@ -36,24 +36,24 @@
                             <p class="error"> <%= errores.nombreUsuario.msg  %> ! </p>
                         <% } %>
                         <div class = "inputs">
-                        <input type="text" name="nombreUsuario" placeholder="Nombre y Apellido" value = "<%= locals.oldData ? oldData.nombreUsuario : null  %>" class="input" required>
+                        <input type="text" name="nombreUsuario" placeholder="Nombre y Apellido" value = "<%= locals.oldData ? oldData.nombreUsuario : null  %>" id="nombreUsuario" class ="input" >
                         <span id = "errorNombre"></span>
                         <% if (locals.errores && errores.imagen) { %>
                             <p class="error"> <%= errores.imagen.msg  %> ! </p>
                         <% } %>
-                        <input type="email" name="emailUsuario" placeholder="Correo electronico" class="input" required >
+                        <input type="email" name="emailUsuario" placeholder="Correo electronico" class="input" id = "email"  >
                         <span id = "errorEmail"></span>
                         <% if (locals.errores && errores.emailUsuario) { %>
                             <p class="error"> <%= errores.emailUsuario.msg  %> ! </p>
                         <% } %>
 
-                        <input type="password" name="passwordUsuario" placeholder="Contraseña" class="input"> 
+                        <input type="password" name="passwordUsuario" placeholder="Contraseña" class="input" id = "password"> 
                         <span id = "errorPass"></span>
                         <% if (locals.errores && errores.passwordUsuario) { %>
                             <p class="error"> <%= errores.passwordUsuario.msg  %> ! </p>
                         <% } %>    
-                        <input type="password" name = "confirmarPass" placeholder="Confirme la contaseña" class = "input">
-                        <input type="text" name = "telefono" placeholder="Numero de telefono">
+                        <input type="password" name = "confirmarPass" placeholder="Confirme la contaseña" class = "input" id ="passConfirm">
+                        <input type="text" name = "telefono" placeholder="Numero de telefono" id = "telefono">
                         <select name="genero" class="input">
                             <option value ="" name  = "vacio">Seleccione tu genero</option>
                             <% let opciones = ['Hombre' , 'Mujer'] %>

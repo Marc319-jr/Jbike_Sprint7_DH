@@ -33,21 +33,31 @@ validarNombre = function(e)
 	if(e.target.value.includes(" ")  && expresiones.nombre.test(e.target.value))
 	{
 		console.log("nombre correcto");
+		document.querySelector("#nombreUsuario").style.border = "none"
+		document.querySelector("#nombreUsuario").style.outline = "2px solid green"
 		delete errores.nombre
 	}
 	else if(e.target.value == "")
 	{
 		errores.nombre = "El campo nombre no puede quedar vacio"
+		document.querySelector("#nombreUsuario").style.border = "none"
+		document.querySelector("#nombreUsuario").style.outline = "1px solid gray"
 		console.log(errores.nombre);
+	
 	}
-	else if(!expresiones.nombre.test(e.target.value))
+	else if(!expresiones.nombre.test(e.target.value) && e.target.value != "")
 	{
 		errores.nombre = "El nombre no debe tener numeros o #,$,%.."
+		document.querySelector("#nombreUsuario").style.border = "none"
+		document.querySelector("#nombreUsuario").style.outline = "2px solid red"
 		console.log(errores.nombre);
+
 	}
 	else
 	{
 		errores.nombre  = "El nombre debe tener apellido incluido"
+		document.querySelector("#nombreUsuario").style.border = "none"
+		document.querySelector("#nombreUsuario").style.outline = "2px solid red"
 		console.log(errores.nombre);
 	}	
 }
@@ -56,16 +66,22 @@ validarEmail = function(e)
 	if(e.target.value.includes("@") && e.target.value.includes(".com"))
 	{
 		console.log("Email correcto");
+		document.querySelector("#email").style.border = "none"
+		document.querySelector("#email").style.outline = "2px solid green"
 		delete errores.email
 	}
 	else if(e.target.value == "")
 	{
 		errores.email  = "El campo email no puede estar vacio"
+		document.querySelector("#email").style.border = "none"
+		document.querySelector("#email").style.outline = "1px solid gray"
 		console.log(errores.email);
 	}
 	else
 	{
 		errores.email = "El formato debe ser Email"
+		document.querySelector("#email").style.border = "none"
+		document.querySelector("#email").style.outline = "2px solid red"
 		console.log(errores.email);
 	}
 
@@ -75,16 +91,22 @@ validarPass = function(e)
 	if(e.target.value != "" && expresiones.password.test(e.target.value)) // caso correcto
 	{
 		console.log("password correcta");
+		document.querySelector("#password").style.border = "none"
+		document.querySelector("#password").style.outline = "2px solid green"
 		delete errores.password
 	}	
-	else if(!expresiones.password.test(e.target.value)) // chekeamos que tiene 4-12 caracters
+	else if(!expresiones.password.test(e.target.value) && e.target.value != "") // chekeamos que tiene 4-12 caracters
 	{
 		errores.password = "la contraseña tiene que ser entre 6 y 12 caracteres"
+		document.querySelector("#password").style.border = "none"
+		document.querySelector("#password").style.outline = "2px solid red"
 		console.log(errores.password);
 	}
 	else if(e.target.value == "") //caso vacio
 	{
 		errores.password = "la contraseña no puede estar vacia"
+		document.querySelector("#password").style.border = "none"
+		document.querySelector("#password").style.outline = "1px solid gray"
 		console.log(errores.password);
 	}
 }
@@ -92,12 +114,23 @@ confirmarPass = function(e){
 	if(e.target.value != inputs[2].value)
 	{
 		errores.confrimPass = "las contraseñas tienen que ser iguales"
+		document.querySelector("#passConfirm").style.border = "none"
+		document.querySelector("#passConfirm").style.outline = "2px solid red"
 		console.log(errores.confrimPass);
 	}
-	else
+	else if(e.target.value == inputs[2].value && e.target.value != "")
 	{	
 		console.log("contraseñas matchean");
+		document.querySelector("#passConfirm").style.border = "none"
+		document.querySelector("#passConfirm").style.outline = "2px solid green"
 		delete errores.confrimPass
+	}
+	else
+	{
+		errores.confrimPass = "El campo no puede quedar vacion"
+		document.querySelector("#passConfirm").style.border = "none"
+		document.querySelector("#passConfirm").style.outline = "1px solid gray"
+		console.log(errores.confrimPass);
 	}	
 }
 validarTelefono = function(e)
@@ -105,13 +138,25 @@ validarTelefono = function(e)
 	if(expresiones.telefono.test(e.target.value))
 	{
 		console.log("Numero bueno");
+		document.querySelector("#telefono").style.border = "none"
+		document.querySelector("#telefono").style.outline = "2px solid green"
 		delete errores.telefono
 	}
-	else
+	else if(e.target.value != "" && !expresiones.telefono.test(e.target.value))
 	{
 		errores.telefono  = "El numero debe contener 7-14 numeros"
+		document.querySelector("#telefono").style.border = "none"
+		document.querySelector("#telefono").style.outline = "2px solid red"
 		console.log(errores.telefono);
 	}
+	else if(e.target.value == "")
+	{
+		errores.telefono = "El campo no puede quedar vacio"
+		document.querySelector("#telefono").style.border = "none"
+		document.querySelector("#telefono").style.outline = "1px solid gray"
+		console.log(errores.telefono);
+	}
+
 }
 validarTipoDeImagen = function(e)
 {
@@ -174,6 +219,8 @@ inputs.forEach((input) => {
 
 //validacion de genero
 genero.addEventListener("click" , validarGenero)
+
+
 
 //hasta que no se valida todo no seguimos
 formulario.addEventListener("submit" , (e) => {
