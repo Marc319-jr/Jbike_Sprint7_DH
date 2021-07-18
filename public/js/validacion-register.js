@@ -234,11 +234,6 @@ formulario.addEventListener("submit" , (e) => {
 		console.log("hay errores");
 		e.preventDefault()
 		console.log(errores);
-	}
-
-
-		
+	}	
 })
-
-
 })

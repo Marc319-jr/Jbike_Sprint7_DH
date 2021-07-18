@@ -35,6 +35,36 @@ h2{
 }
 
 
+.productsAdmin{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.productsAdmin h2{
+    text-align: center;
+}
+
+.productsAdmin .botonesAdmin{
+    margin-bottom: 20px;
+
+}
+
+.productsAdmin .botonesAdmin .addButton{
+    background-color: red;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+}
+
+.productsAdmin .botonesAdmin .addButton a{
+    color: white;
+    text-decoration: none;
+}
+
+
+
 @media screen and (min-width:768px){
     .catalogoCategorias li img{
         display: flex;
