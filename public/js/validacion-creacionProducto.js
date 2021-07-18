@@ -9,7 +9,7 @@ console.log(inputs);
 console.log(textAreas);
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	modelo: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{6,12}$/, // 6 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -30,29 +30,127 @@ errores = {
     cuotas: "El producto debe tener como por lo menos 1 cuota"    
 }
 
+
+//fucniones de validacion de textareas
+validarDesc1 = function(e){
+    //logica de error
+    if(e.target.value == "")
+    {
+    document.querySelector(".desc1").style.border = "none"
+    document.querySelector(".desc1").style.outline = "1px solid gray"
+    errores.desc1 = "La descripcion de articulo no debe estar vacia"
+    }
+    else if(e.target.name != "" && e.target.value.length <= 20)
+    {
+    document.querySelector(".desc1").style.outline = "2px solid red"   
+    errores.desc1 = "La descripcion del producto debe tener mas de 20 caracteres"            
+    }
+    else 
+    { 
+    document.querySelector(".desc1").style.outline = "2px solid green"     
+    delete errores.desc1          
+    }
+}
+validarDesc2 = function(e){
+    if(e.target.value == "")
+        {
+		document.querySelector(".desc2").style.border = "none"
+		document.querySelector(".desc2").style.outline = "1px solid gray"
+        errores.desc2 = "La descripcion de articulo no debe estar vacia"
+        }
+        else if(e.target.name != "" && e.target.value.length <= 20)
+        {
+        errores.desc2 = "La descripcion del producto debe tener mas de 20 caracteres"
+        document.querySelector(".desc2").style.outline = "2px solid red"               
+        }
+        else 
+        { 
+        delete errores.desc2
+        document.querySelector(".desc2").style.outline = "2px solid green"               
+        }
+}
+//Validaciones de text areas
 const validatorTextArea = (e) => {
     switch (e.target.name){
         case "desc1":
         console.log("desc1 de producto");
-        //logica de error
+        validarDesc1(e);
         break
         case "desc2":
         console.log("desc2 de producto");
-        //logica de error
+        validarDesc2(e);
         break
     }
 }
 
 
+//funciones de validacion de inputs
+
+validarMarca = function(e){
+    marca = document.querySelector(".marca");
+    if(e.target.value == "")
+    {
+        marca.style.border = "none"
+        marca.style.outline = "1px solid gray"
+        errores.marca = "El nombre de la marca del producto no debe quedar vacio"
+    }
+    else if(e.target.value.length > 16)
+    {
+        marca.style.border = "none"
+        marca.style.outline = "2px solid red"   
+        errores.marca = "El nombre de la marca del producto no debe tener mas de 16 caracteres"
+    }
+    else if(!expresiones.nombre.test(e.target.value))
+    {
+        marca.style.border = "none"
+        marca.style.outline = "2px solid red"   
+        console.log("Error en el nombre de la marca");
+        errores.marca = "El nombre de la marca del producto no debe tener numeros o caracteres especiales"
+    }
+    else
+    {
+        marca.style.border = "none"
+        marca.style.outline = "2px solid green"   
+        delete errores.marca
+    }
+}
+validarModelo = function(e){
+    modelo = document.querySelector(".modelo");
+    if(e.target.value == "")
+    {
+        modelo.style.border = "none"
+        modelo.style.outline = "1px solid gray"
+        errores.modelo = "El nombre del modelo del producto no debe quedar vacio"
+    }
+    else if(e.target.value.length > 16)
+    {
+        modelo.style.border = "none"
+        modelo.style.outline = "2px solid red"   
+        errores.modelo = "El nombre del modelo del producto no debe tener mas de 16 caracteres"
+
+    }
+    else
+    {
+        modelo.style.border = "none"
+        modelo.style.outline = "2px solid green"   
+        delete errores.marca
+
+    }
+}
+
+
+
+
+//Validaciones de Inputs
 const validarInputs = (e) => {
     switch(e.target.name){
         case "marcaProducto":
             console.log("marca Producto");
-            //logica de error
+            validarMarca(e)
             break;
         case "modeloProducto":
             console.log("Modelo Producto");
-            //logica de error
+            validarModelo(e);
             break;
         case "imagen":
             console.log("Imagen");
@@ -98,14 +196,20 @@ textAreas.forEach((textArea) =>{
 })
 
 
-formulario.addEventListener("submit", function(e){
-    if(errores != null)
-    {
-    e.preventDefault()
-    console.log(errores);
-    }
 
-    
+//Acto de validacion pre envio de formulario
+
+formulario.addEventListener("submit", function(e){
+    if(JSON.stringify(errores) == '{}')
+	{
+		console.log("no hay errores" );
+	}
+	else
+	{
+		console.log("hay errores");
+		e.preventDefault()
+		console.log(errores);
+	}	
 })
 
 

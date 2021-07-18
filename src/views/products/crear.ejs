@@ -9,27 +9,27 @@
             <h1>Crearcion de producto</h1>
             <form class = "creacion-producto" method="POST" action="/products/crear" enctype="multipart/form-data">
                 <span>Marca</span>
-                <input type = "text" name = "marcaProducto">
+                <input type = "text" name = "marcaProducto" class = "marca">
                 <span>Modelo</span>
-                <input type = "text" name = "modeloProducto">
+                <input type = "text" name = "modeloProducto" class = "modelo">
                 <span>Ingrese descripcion bajo modelo</span>
-                <textarea name = "desc1" placeholder="Ingrese texto aqui"></textarea>
+                <textarea name = "desc1" class = "desc1" placeholder="Ingrese texto aqui"></textarea>
                 <span>Ingrese descripcion bajo fotos</span>
-                <textarea name = "desc2" placeholder="Ingrese texto aqui"></textarea>
+                <textarea name = "desc2" placeholder="Ingrese texto aqui" class = "desc2"></textarea>
                 <span>Coloque la foto principal</span>
                 <input name = "imagen" type = "file" class = "foto-principal" >
                 <span>Rodados</span>
-                <input type = "text" name = "rodadosProducto" placeholder="ej: 24,26,28">
+                <input type = "text" name = "rodadosProducto" placeholder="ej: 24,26,28" class = "rodados">
                 <span>Colores</span>
-                <input type = "text" name = "coloresProducto" placeholder="ej: Amarillo,Negro,Blanco">
+                <input type = "text" name = "coloresProducto" placeholder="ej: Amarillo,Negro,Blanco" class = "colores">
                 <span>Stock</span>
-                <input type = "number" name = "stockProducto" >
+                <input type = "number" name = "stockProducto"  class = "stock">
                 <span>Precio</span>
-                <input type = "number" name = "precioProducto">
+                <input type = "number" name = "precioProducto" class = "precio">
                 <span>Descuento</span>
-                <input type = "number" name = "descuentoProducto">
+                <input type = "number" name = "descuentoProducto" class = "descuento">
                 <span>Cuotas</span>
-                <input type = "number" name = "cuotasProducto">
+                <input type = "number" name = "cuotasProducto" class = "cuotas">
 
                 <div class="botones-creacion">
                 <button type="submit">Crear</button>

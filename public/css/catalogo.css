@@ -51,7 +51,7 @@ h2{
 }
 
 .productsAdmin .botonesAdmin .addButton{
-    background-color: red;
+    background-color: darkred;
     border: 1px solid gray;
     border-radius: 10px;
     margin: 10px;
