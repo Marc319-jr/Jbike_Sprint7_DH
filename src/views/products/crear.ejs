@@ -7,6 +7,15 @@
     <%- include('../partials/headercat') %>
     <section class = "creacion">
             <h1>Crearcion de producto</h1>
+            <% if (locals.errors) { %>
+                    <% for( let oneError in errors) { %>
+
+                        <span><%= errors[oneError].msg  %> </span>
+                        <br>
+                       
+                    
+                    <% } %>
+                <% } %>
             <form class = "creacion-producto" method="POST" action="/products/crear" enctype="multipart/form-data">
                 <span>Marca</span>
                 <input type = "text" name = "marcaProducto" class = "marca">
@@ -50,6 +59,5 @@
 
         <%- include('../partials/footer') %>
 </body>
-<script src ="/js/validacion-creacionProducto.js"></script>
 
 </html>

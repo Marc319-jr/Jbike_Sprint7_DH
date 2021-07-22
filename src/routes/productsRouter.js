@@ -18,15 +18,20 @@ const storage = multer.diskStorage({
 
 let fileUpload = multer({storage});
 
+
+//validator
+
+const validator = require('../middlewares/productValidator.js');
+
 //GETS
 router.get('/product' , productsController.product);
 router.get('/carrito', productsController.carrito);
-router.get('/crear' , productsController.crear);
+router.get('/crear'  ,productsController.crear);
 router.get('/edit/:id' , productsController.edit);
 router.get('/catalogo' , productsController.catalogo)
 
 //POST
-router.post('/crear' , fileUpload.single('imagen'),productsController.guardar);
+router.post('/crear' , fileUpload.single('imagen'),validator ,productsController.guardar);
 
 //PUT
 router.put('/:id' ,fileUpload.single('imagen'), productsController.update);

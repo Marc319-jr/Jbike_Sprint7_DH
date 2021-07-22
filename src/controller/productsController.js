@@ -1,6 +1,10 @@
 const path = require('path');
 const fs = require ('fs');
 const file = path.resolve(__dirname, '../data/', 'productos.JSON');
+const { validationResult } = require('express-validator');
+
+
+
 const controller = {
     product: (req,res) => {
         console.log("renderizando al producto: ");
@@ -37,6 +41,13 @@ const controller = {
 
     guardar:(req,res) => {
         console.log("creando un producto");
+        const resultValidation = validationResult(req)
+        if(resultValidation.errors.length > 0)
+        {
+            res.render('../src/views/products/crear' , {errors : resultValidation.mapped()});
+        }
+        else
+        {
         let archivoProductos = fs.readFileSync(file, {enconding: 'utf-8'});
         let productos;
         if(archivoProductos == "")
@@ -71,6 +82,7 @@ const controller = {
         let productosJSON = JSON.stringify(productos);
         fs.writeFileSync(file, productosJSON);
         res.redirect("/");
+    }
     },
     edit:(req,res) => {
         console.log("Editando un producto");

@@ -223,7 +223,18 @@ header .header-banner .contenedor div{
 
 @media screen and (min-width:1242px)
 {
+header .top-header .top .logo2{
+    display:none;
+}
 
+header .top-header .top .logo1
+{
+    display: block;
+    margin-top: 5px;
+    width: px;
+}
+}
+/*
     body{
         margin: 0;
     }
@@ -392,9 +403,7 @@ header .header-banner .contenedor div{
 
 
 
-header .top-header .top .logo2{
-    display:none;
-}
+
 
 
 header .top-header .low{
@@ -446,7 +455,7 @@ header .top-header .low form input{
 
 }
 
-
+*/
 /***************************fin style header**********************************/
 
 
