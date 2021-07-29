@@ -3,7 +3,7 @@
   "id": 1,
   "nombreUsuario": "Marcelo Sznek",
   "genero": "Hombre",
-  "rol" : "admin",
+  "rol": "admin",
   "emailUsuario": "marcelo.sznek@gmail.com",
   "passwordUsuario": "$2a$10$JwEUmayYQBeudjGqBeGY5.Ez/JQt17bLv95guaOFlMePGllyeFUu6",
   "imagen": "usuario-1621705243172.jpeg"
@@ -12,7 +12,7 @@
   "id": 2,
   "nombreUsuario": "Agus",
   "genero": "Hombre",
-  "rol" : "admin",
+  "rol": "admin",
   "emailUsuario": "agus@gmail.com",
   "passwordUsuario": "$2a$10$V6QNr2Hnm9XkOTyuBgV.xONBx17w1yPSShqnReOUGOfSO32JZWKwi",
   "imagen": "usuario-1622158858289.jpeg"
@@ -21,7 +21,7 @@
   "id": 3,
   "nombreUsuario": "Prueba 124",
   "genero": "Hombre",
-  "rol" : "user",
+  "rol": "user",
   "emailUsuario": "prueba123@gmail.com",
   "passwordUsuario": "$2a$10$V3.Lwm75Or2CZonP.iq7LeRGfHygPbGVly1nk2XJTtcg0LXoMNEL.",
   "imagen": "usuario-1623848235656.png"
@@ -30,6 +30,7 @@
   "id": 4,
   "nombreUsuario": "Mati Dh",
   "genero": "Hombre",
+  "rol": "admin",
   "emailUsuario": "mati@bici.com",
   "passwordUsuario": "$2a$10$3G1te83F6C49vXmapQOfJeCtnfm2yvxuTDhzlNENpTOGuW4zxeQNq",
   "imagen": "usuario-1625525714203.jpg"
@@ -39,10 +40,20 @@
   "nombreUsuario": "Marcelo sznek",
   "emailUsuario": "marcelo.sznek@gmail.com",
   "passwordUsuario": "$2a$10$CO6eiIaOeWou3E59ldX2GOzhdDadxGvVF1mYX1L4ub9XQ0modkIc2",
-  "rol" : "admin",
+  "rol": "admin",
   "confirmarPass": "123456",
   "telefono": "1171624859",
   "genero": "Hombre",
   "imagen": "usuario-1626072960103.jpg"
+ },
+ {
+  "id": 6,
+  "nombreUsuario": "Marcelo sznek",
+  "emailUsuario": "mati@bici.com",
+  "passwordUsuario": "$2a$10$F2ZuVW1.IwjujONw5H3hDeTICTlb8ftII7DP/l0NBWjtJ.8eARodi",
+  "confirmarPass": "123456",
+  "telefono": "1171624859",
+  "genero": "Hombre",
+  "imagen": "usuario-1626992478426.jpeg"
  }
 ]

@@ -8,48 +8,47 @@
     <section class = "creacion">
             <h1>Crearcion de producto</h1>
             <% if (locals.errors) { %>
+                <div class = "errors">
                     <% for( let oneError in errors) { %>
-
                         <span><%= errors[oneError].msg  %> </span>
-                        <br>
-                       
-                    
+                        <br>   
                     <% } %>
+                </div>
                 <% } %>
             <form class = "creacion-producto" method="POST" action="/products/crear" enctype="multipart/form-data">
                 <span>Marca</span>
                 <input type = "text" name = "marcaProducto" class = "marca">
-                <p id = "errorMarca"></p>
+                <p class = "errorInput" id = "errorMarca"></p>
                 <span>Modelo</span>
                 <input type = "text" name = "modeloProducto" class = "modelo">
-                <p id = "errorModelo"></p>
+                <p class = "errorInput" id = "errorModelo"></p>
                 <span>Ingrese descripcion </span>
                 <textarea name = "desc1" class = "desc1" placeholder="Ingrese texto aqui"></textarea>
-                <p id = "errorDesc1"></p>
+                <p class = "errorInput" id = "errorDesc1"></p>
                 <span>Ingrese descripcion bajo fotos</span>
                 <textarea name = "desc2" placeholder="Ingrese texto aqui" class = "desc2"></textarea>
-                <p id = "errorDesc2"></p>
+                <p class = "errorInput" id = "errorDesc2"></p>
                 <span>Coloque la foto principal</span>
                 <input name = "imagen" type = "file" class = "foto-principal" >
-                <p id = "errorImagen"></p>
+                <p class = "errorInput" id = "errorImagen"></p>
                 <span>Rodados</span>
                 <input type = "text" name = "rodadosProducto" placeholder="ej: 24,26,28" class = "rodados">
-                <p id = "errorRodados"></p>
+                <p class = "errorInput" id = "errorRodados"></p>
                 <span>Colores</span>
                 <input type = "text" name = "coloresProducto" placeholder="ej: Amarillo,Negro,Blanco" class = "colores">
-                <p id = "errorColor"></p>
+                <p class = "errorInput" id = "errorColor"></p>
                 <span>Stock</span>
                 <input type = "number" name = "stockProducto"  class = "stock">
-                <p id = "errorStock"></p>
+                <p class = "errorInput" id = "errorStock"></p>
                 <span>Precio</span>
                 <input type = "number" name = "precioProducto" class = "precio">
-                <p id = "errorPrecio"></p>
+                <p class = "errorInput" id = "errorPrecio"></p>
                 <span>Descuento</span>
                 <input type = "number" name = "descuentoProducto" class = "descuento">
-                <p id = "errorDescuento"></p>
+                <p class = "errorInput" id = "errorDescuento"></p>
                 <span>Cuotas</span>
                 <input type = "number" name = "cuotasProducto" class = "cuotas">
-                <p id = "errorCuotas"></p>
+                <p class = "errorInput" id = "errorCuotas"></p>
                 <div class="botones-creacion">
                 <button type="submit">Crear</button>
                 <button type="reset">Resetear</button>

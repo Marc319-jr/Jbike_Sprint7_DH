@@ -152,8 +152,8 @@ validarImagen = function(e){
     else 
     {
         console.log("Imagen invalida");
-        document.querySelector("#errorImagen").innerHTML = "La imagen tiene que se de tipo .jpg, .jpeg o .png"
         errores.imagen = "La imagen tiene que se de tipo .jpg, .jpeg o .png"
+        document.querySelector("#errorImagen").innerHTML = errores.imagen
     }
 }
 validarRodados = function(e){
