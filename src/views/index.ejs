@@ -16,9 +16,9 @@
                     <h1>Aun no hay productos en la base</h1>
                     </div>
                 <% }  %>
-                <% for(let i = 0;i<productos.length || i>5;i++) { %>
+                <% for(let i = 0;i < 3;i++) { %>
                 <div class="articulos">
-                    <a href="/products/product?productID=<%= productos[i].id %>">
+                    <a href="/products/product?productID=<%= (i+1) %>">
                         <article class="carta">
                             <img src="../image/productsimages/<%= productos[i].imagen %>" width="100%" alt="IMG product">
                             <div class="info">
@@ -43,9 +43,9 @@
                     <h1>Aun no hay productos en la base</h1>
                     </div>
                 <% }  %>
-                <% for(let i = 0;i<productos.length || i>5;i++) { %>
+                <% for(let i = 0;i<3;i++) { %>
                 <div class="articulos">
-                    <a href="/products/product?productID=<%= productos[i].id %>">
+                    <a href="/products/product?productID=<%= (i+1) %>">
                         <article class="carta">
                             <img src="../image/productsimages/<%= productos[i].imagen %>" width="100%" alt="IMG product">
                             <div class="info">

@@ -40,6 +40,7 @@ app.use(userloggedMiddleware);
 const indexRouter = require('./routes/indexRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
+const categoriaRouter = require('./routes/categoriaRouter');
 //Config de engine y sistema de ruteo
 
 app.set('view engine', 'ejs');
@@ -50,7 +51,7 @@ app.set('view engine', 'ejs');
 app.use('/' , indexRouter);
 app.use('/products' , productsRouter);
 app.use('/users' , usersRouter);
-
+app.use('/categoria' , categoriaRouter);
 
 
 

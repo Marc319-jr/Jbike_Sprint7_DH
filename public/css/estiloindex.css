@@ -229,12 +229,12 @@ header .top-header .top .logo2{
 
 header .top-header .top .logo1
 {
-    display: block;
+    display: none;
     margin-top: 5px;
     width: px;
 }
 }
-/*
+
     body{
         margin: 0;
     }
@@ -453,9 +453,9 @@ header .top-header .low form input{
 
 
 
-}
 
-*/
+
+
 /***************************fin style header**********************************/
 
 
@@ -1382,7 +1382,7 @@ main {
 @media screen and (min-width:1241px)
 {
     main{
-        margin-top: 180px;
+        margin-top: 70px;
     }
 }
 

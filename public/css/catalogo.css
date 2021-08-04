@@ -16,7 +16,9 @@ h2{
     margin: 10px;
 }
 
-.catalogoCategorias li{
+
+
+.catalogoCategorias li a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,7 +26,11 @@ h2{
     padding: 20px;
     list-style: none;
     border-bottom: 2px solid rgb(240, 240, 240);
+    color: black;
+    font-style: normal;
+    text-decoration: none;
 }
+
 
 .catalogoCategorias li span{
     font-size: 18px;
