@@ -33,29 +33,32 @@
                     <h3>Crear una cuenta</h3>
                     <form action="/users/register" method="POST" enctype="multipart/form-data" class = "formRegister">
                         <% if (locals.errores && errores.nombreUsuario) { %>
-                            <p class="error"> <%= errores.nombreUsuario.msg  %> ! </p>
+                            <p class="errorBack"> <%= errores.nombreUsuario.msg  %> ! </p>
                         <% } %>
                         <div class = "inputs">
+                        <p id = "nombreError" class = "errorFront"></p>
                         <input type="text" name="nombreUsuario" placeholder="Nombre y Apellido" value = "<%= locals.oldData ? oldData.nombreUsuario : null  %>" id="nombreUsuario" class ="input" >
-                        <span id = "errorNombre"></span>
                         <% if (locals.errores && errores.imagen) { %>
-                            <p class="error"> <%= errores.imagen.msg  %> ! </p>
+                            <p class="errorBack"> <%= errores.imagen.msg  %> ! </p>
                         <% } %>
+                        <p id = "emailError" class = "errorFront"></p>
                         <input type="email" name="emailUsuario" placeholder="Correo electronico" class="input" id = "email"  >
                         <span id = "errorEmail"></span>
                         <% if (locals.errores && errores.emailUsuario) { %>
-                            <p class="error"> <%= errores.emailUsuario.msg  %> ! </p>
+                            <p class="errorBack"> <%= errores.emailUsuario.msg  %> ! </p>
                         <% } %>
-
+                        <p id = "passError" class = "errorFront"></p>
                         <input type="password" name="passwordUsuario" placeholder="Contraseña" class="input" id = "password"> 
                         <span id = "errorPass"></span>
                         <% if (locals.errores && errores.passwordUsuario) { %>
-                            <p class="error"> <%= errores.passwordUsuario.msg  %> ! </p>
+                            <p class="errorBack"> <%= errores.passwordUsuario.msg  %> ! </p>
                         <% } %>    
+                        <p id = "confrimpassError" class = "errorFront"></p>
                         <input type="password" name = "confirmarPass" placeholder="Confirme la contaseña" class = "input" id ="passConfirm">
+                        <p id = "phoneError" class = "errorFront"></p>
                         <input type="text" name = "telefono" placeholder="Numero de telefono" id = "telefono">
-                        <select name="genero" class="input">
-                            <option value ="" name  = "vacio">Seleccione tu genero</option>
+                        <select name="genero" class="input" style = "margin-top: 10px; margin-bottom: -10px;">
+                            <option value ="" name  = "vacio">Seleccione el genero</option>
                             <% let opciones = ['Hombre' , 'Mujer'] %>
                             <% for(let i = 0;i<opciones.length;i++ ) { %>
                                 <option value = "<%= opciones[i] %>" <%= locals.oldData && (opciones[i] === oldData.genero) ? 'selected' : null %> name = "genero"> <%= opciones[i] %>  </option>
@@ -65,10 +68,10 @@
                     </div>
   
                     <% if (locals.errores && errores.genero) { %>
-                        <p class="error"> <%= errores.genero.msg  %> ! </p>
+                        <p class="errorBack"> <%= errores.genero.msg  %> ! </p>
                     <% } %>
                     <br>
-               
+                    <p id = "imageError" class = "errorFront"></p>
                     <label for = "imagen">Ingrese su imagen de perfil</label>
                     <input type="file" name = "imagen">
                     <div class="buttons">
@@ -84,8 +87,9 @@
         </div>
     </div>
     </div>
-    <script src = "/js/validacion-register.js"></script>
 
 </body>
+<script src = "/js/validacion-register.js"></script>
+
 
 </html>

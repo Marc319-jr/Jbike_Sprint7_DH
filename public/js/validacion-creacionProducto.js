@@ -3,6 +3,7 @@ window.addEventListener("load" , function(){
 const formulario = document.querySelector(".creacion-producto")
 const inputs = document.querySelectorAll(".creacion-producto input") 
 const textAreas = document.querySelectorAll(".creacion-producto textarea")
+const selectMarca = this.document.querySelector(".marca")
 
 console.log(formulario);
 console.log(inputs);
@@ -24,7 +25,7 @@ const expresiones = {
 errores = {
     desc1: "La descripcion de articulo no debe estar vacia",
     desc2: "La descripcion de articulo no debe estar vacia",
-    marca: "El nombre de la marca del producto no debe quedar vacio",
+    marca: "Debes seleccionar la maraca",
     modelo: "El nombre del modelo del producto no debe quedar vacio",
     imagen: "La imagen no debe estar vaia",
     rodado: "El producto debe tener al menos 1 rodado",
@@ -34,6 +35,46 @@ errores = {
     descuento: "El descuento debe estar insertado",
     cuotas: "El producto debe tener como por lo menos 1 cuota"    
 }
+
+erroresVacio = {
+    desc1: "",
+    desc2: "",
+    marca: "",
+    modelo: "",
+    imagen: "",
+    rodado: "",
+    color: "",
+    stock: "",
+    precio: "",
+    descuento: "",
+    cuotas: ""    
+}
+
+
+//fucniones de validacion de campos select
+validarMarca = function(e){
+    console.log("la marce seleccionada:")
+    console.log(e.target.value);
+    if(e.target.value != "no")
+    {
+        errores.marca = ""
+    }
+    else
+    {
+        errores.marca = "Debes seleccionar la maraca"
+    }
+}
+
+
+//validaciones de selects
+const selectValidator = (e) => {
+    var error = document.querySelector("#errorMarca")
+    console.log("validando la marca");
+    validarMarca(e);
+    error.innerText = errores.marca
+}
+
+
 
 
 //fucniones de validacion de textareas
@@ -53,7 +94,7 @@ validarDesc1 = function(e){
     else 
     { 
     document.querySelector(".desc1").style.outline = "2px solid green"     
-    delete errores.desc1          
+    errores.desc1 = ""          
     }
 }
 validarDesc2 = function(e){
@@ -70,7 +111,7 @@ validarDesc2 = function(e){
         }
         else 
         { 
-        delete errores.desc2
+        errores.desc2 = ""
         document.querySelector(".desc2").style.outline = "2px solid green"               
         }
 }
@@ -78,46 +119,24 @@ validarDesc2 = function(e){
 const validatorTextArea = (e) => {
     switch (e.target.name){
         case "desc1":
+        var error = document.querySelector("#desc1Error")
         console.log("desc1 de producto");
         validarDesc1(e);
+        error.innerText = errores.desc1
         break
         case "desc2":
+        var error = document.querySelector("#desc2Error")
         console.log("desc2 de producto");
         validarDesc2(e);
+        error.innerText = errores.desc2
         break
     }
 }
+
+
 
 //funciones de validacion de inputs
 
-validarMarca = function(e){
-    marca = document.querySelector(".marca");
-    if(e.target.value == "")
-    {
-        marca.style.border = "none"
-        marca.style.outline = "1px solid gray"
-        errores.marca = "El nombre de la marca del producto no debe quedar vacio"
-    }
-    else if(e.target.value.length > 16)
-    {
-        marca.style.border = "none"
-        marca.style.outline = "2px solid red"   
-        errores.marca = "El nombre de la marca del producto no debe tener mas de 16 caracteres"
-    }
-    else if(!expresiones.nombre.test(e.target.value))
-    {
-        marca.style.border = "none"
-        marca.style.outline = "2px solid red"   
-        console.log("Error en el nombre de la marca");
-        errores.marca = "El nombre de la marca del producto no debe tener numeros o caracteres especiales"
-    }
-    else
-    {
-        marca.style.border = "none"
-        marca.style.outline = "2px solid green"   
-        delete errores.marca
-    }
-}
 validarModelo = function(e){
     modelo = document.querySelector(".modelo");
     if(e.target.value == "")
@@ -126,18 +145,18 @@ validarModelo = function(e){
         modelo.style.outline = "1px solid gray"
         errores.modelo = "El nombre del modelo del producto no debe quedar vacio"
     }
-    else if(e.target.value.length > 16)
+    else if(e.target.value.length > 16 || e.target.value.length < 5 )
     {
         modelo.style.border = "none"
         modelo.style.outline = "2px solid red"   
-        errores.modelo = "El nombre del modelo del producto no debe tener mas de 16 caracteres"
+        errores.modelo = "El nombre del modelo debe tener entre 5 y 16 caracteres"
 
     }
     else
     {
         modelo.style.border = "none"
         modelo.style.outline = "2px solid green"   
-        delete errores.modelo
+        errores.modelo = ""
     }
 }
 validarImagen = function(e){
@@ -146,14 +165,12 @@ validarImagen = function(e){
     if(e.target.value.includes(".jpg")  || e.target.value.includes(".jpeg") || e.target.value.includes(".png"))
     {
         console.log("Imagen valida");
-        document.querySelector("#errorImagen").innerHTML = "Imagen valida"
-        delete errores.imagen
+        errores.imagen = ""
     }
     else 
     {
         console.log("Imagen invalida");
         errores.imagen = "La imagen tiene que se de tipo .jpg, .jpeg o .png"
-        document.querySelector("#errorImagen").innerHTML = errores.imagen
     }
 }
 validarRodados = function(e){
@@ -168,7 +185,7 @@ validarRodados = function(e){
     {
         rodados.style.border = "none"
         rodados.style.outline = "2px solid green"   
-        delete errores.rodado
+        errores.rodado = ""
     }
     else
     {
@@ -189,7 +206,7 @@ validarColores = function(e){
     {
         colores.style.border = "none"
         colores.style.outline = "2px solid green"
-        delete errores.color
+        errores.color = ""
     }
     else
     {
@@ -210,7 +227,7 @@ validarStock = function(e){
     {
         stock.style.border = "none"
         stock.style.outline = "2px solid green"
-        delete errores.stock
+        errores.stock = ""
     }
     else
     {
@@ -231,7 +248,7 @@ validarPrecio = function(e){
     {
         precio.style.border = "none"
         precio.style.outline = "2px solid green"
-        delete errores.precio
+        errores.precio = ""
     }
     else
     {
@@ -253,7 +270,7 @@ validarDescuento = function(e)
     {
         descuento.style.border = "none"
         descuento.style.outline = "2px solid green"
-        delete errores.descuento;
+        errores.descuento = "";
     }
     else
     {
@@ -275,7 +292,7 @@ validarCuotas = function(e)
     {
         cuotas.style.border = "none"
         cuotas.style.outline = "2px solid green"
-        delete errores.cuotas
+        errores.cuotas = ""
     }
     else
     {
@@ -287,7 +304,6 @@ validarCuotas = function(e)
 
 
 
-
 //Validaciones de Inputs
 const validarInputs = (e) => {
     switch(e.target.name){
@@ -296,67 +312,99 @@ const validarInputs = (e) => {
             validarMarca(e)
             break;
         case "modeloProducto":
+            var error = document.querySelector("#errorModelo")
             console.log("Modelo Producto");
             validarModelo(e);
+            error.innerHTML = errores.modelo
             break;
         case "imagen":
+            var error = document.querySelector("#errorImagen")
             console.log("Imagen");
             validarImagen(e);
+            error.innerHTML = errores.imagen
             break
         case "rodadosProducto":
+            var error = document.querySelector("#errorRodado")
             console.log("Rodado Prudctos");
             validarRodados(e);
+            error.innerHTML = errores.rodado
             break
         case "coloresProducto":
+            var error = document.querySelector("#errorColor")
             console.log("Colores Producto");
             validarColores(e);
+            error.innerHTML = errores.color
             break
         case "stockProducto":
+            var error = document.querySelector("#errorStock")
             console.log("stock Productos");
             validarStock(e)
+            error.innerHTML = errores.stock
             break
         case "precioProducto":
+            var error = document.querySelector("#errorPrecio")
             console.log("Precio");
             validarPrecio(e)
+            error.innerHTML = errores.precio
             break
         case "descuentoProducto":
+            var error = document.querySelector("#errorDescuento")
             console.log("Descuento");
             validarDescuento(e);
+            error.innerHTML = errores.descuento
             break
         case "cuotasProducto":
+            var error = document.querySelector("#errorCuotas")
             console.log("Cuotas");
             validarCuotas(e);
+            error.innerHTML = errores.cuotas
             break    
     }
 }
 
 
+//ejecucion de las validacion en casos de blurs o keyups
+
 inputs.forEach((input) => {
     input.addEventListener("blur" , validarInputs);
     input.addEventListener("keyup" , validarInputs);
+    input.addEventListener("click" ,validarInputs)
+
 })
 
 
 textAreas.forEach((textArea) =>{
     textArea.addEventListener("blur" , validatorTextArea);
     textArea.addEventListener("keyup" , validatorTextArea);
+    textArea.addEventListener("click" ,validatorTextArea)
+
 })
+
+selectMarca.addEventListener("blur" ,selectValidator)
+selectMarca.addEventListener("click" ,selectValidator)
+
+
+
 
 
 
 //Acto de validacion pre envio de formulario
 
-formulario.addEventListener("submit", function(e){
-    if(JSON.stringify(errores) == '{}')
+formulario.addEventListener("submit" , (e) => {
+	console.log(errores == erroresVacio)
+	if(JSON.stringify(errores) != JSON.stringify(erroresVacio))
 	{
-		console.log("no hay errores" );
+		console.log("hay errores");
+		console.log(errores);
+		console.log(erroresVacio)
+		e.preventDefault()
 	}
 	else
 	{
-		console.log("hay errores");
-		e.preventDefault()
-		console.log(errores);
-	}	
+		console.log("no hay errores sigo");
+	}
+	
+
 })
 
 

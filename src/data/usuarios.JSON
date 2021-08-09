@@ -55,5 +55,45 @@
   "telefono": "1171624859",
   "genero": "Hombre",
   "imagen": "usuario-1626992478426.jpeg"
+ },
+ {
+  "id": 7,
+  "nombreUsuario": "Agus Marce",
+  "emailUsuario": "Marce123@gmail.com",
+  "passwordUsuario": "$2a$10$iPg4hYP23DJVXmWNO9ZzC.Y2IXkLjEFlLypXn9ZvNT4jMSvHMWUrC",
+  "confirmarPass": "123456",
+  "telefono": "1171624859",
+  "genero": "Hombre",
+  "imagen": "usuario-1628207895074.png"
+ },
+ {
+  "id": 8,
+  "nombreUsuario": "Marce Agus",
+  "emailUsuario": "mati@bici.com",
+  "passwordUsuario": "$2a$10$peJOgVZboUWy5VX5pOkasOsF6FHwZxtt4M6AQNfC7Fi2nkDCaElCm",
+  "confirmarPass": "123456",
+  "telefono": "1171624859",
+  "genero": "Mujer",
+  "imagen": "usuario-1628207984511.png"
+ },
+ {
+  "id": 9,
+  "nombreUsuario": "Marcelo Sznek",
+  "emailUsuario": "marcelo.sznek@gmail.com",
+  "passwordUsuario": "$2a$10$kFyF9lf0s019Y3Dis6WOfeua/MxvrubANtvKT3Qja2lnjUpjOSiHS",
+  "confirmarPass": "",
+  "telefono": "1171624859",
+  "genero": "Mujer",
+  "imagen": "usuario-1628547520844.png"
+ },
+ {
+  "id": 10,
+  "nombreUsuario": "Agus Marce",
+  "emailUsuario": "marcelo.sznek@gmail.com",
+  "passwordUsuario": "$2a$10$c1wlBoNz40M0j4cpv1LVvuwWv5fPyrojKqv4cd0E1SXw6Llb8zr2C",
+  "confirmarPass": "123456",
+  "telefono": "1171624859",
+  "genero": "Mujer",
+  "imagen": "usuario-1628547788569.png"
  }
 ]

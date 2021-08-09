@@ -16,39 +16,48 @@
                 </div>
                 <% } %>
             <form class = "creacion-producto" method="POST" action="/products/crear" enctype="multipart/form-data">
+
                 <span>Marca</span>
-                <input type = "text" name = "marcaProducto" class = "marca">
-                <p class = "errorInput" id = "errorMarca"></p>
+                <p id = "errorMarca" class = "errorFront"></p>
+                <select name="marcaProducto" class="marca" id = #marcaProducto>
+                    <option value ="no" name  = "vacio">Seleccione la marca</option>
+                    <% let opciones = ['Radon' , 'Cube' , 'Olmo' , 'Vairo' ,'Haro', 'Trek' , 'Giant' , 'Fire Bird' , 'BELL'] %>
+                    <% for(let i = 0;i<opciones.length;i++ ) { %>
+                        <option value = "<%= opciones[i] %>">  <%= opciones[i] %>  </option>
+                    <% } %>
+                
+                </select>
+
                 <span>Modelo</span>
+                <p id = "errorModelo" class = "errorFront"></p>
                 <input type = "text" name = "modeloProducto" class = "modelo">
-                <p class = "errorInput" id = "errorModelo"></p>
                 <span>Ingrese descripcion </span>
+                <p id = "desc1Error" class = "errorFront"></p>
                 <textarea name = "desc1" class = "desc1" placeholder="Ingrese texto aqui"></textarea>
-                <p class = "errorInput" id = "errorDesc1"></p>
                 <span>Ingrese descripcion bajo fotos</span>
+                <p id = "desc2Error" class = "errorFront"></p>
                 <textarea name = "desc2" placeholder="Ingrese texto aqui" class = "desc2"></textarea>
-                <p class = "errorInput" id = "errorDesc2"></p>
                 <span>Coloque la foto principal</span>
+                <p id = "errorImagen" class = "errorFront"></p>
                 <input name = "imagen" type = "file" class = "foto-principal" >
-                <p class = "errorInput" id = "errorImagen"></p>
                 <span>Rodados</span>
+                <p id = "errorRodado" class = "errorFront"></p>
                 <input type = "text" name = "rodadosProducto" placeholder="ej: 24,26,28" class = "rodados">
-                <p class = "errorInput" id = "errorRodados"></p>
                 <span>Colores</span>
+                <p id = "errorColor" class = "errorFront"></p>
                 <input type = "text" name = "coloresProducto" placeholder="ej: Amarillo,Negro,Blanco" class = "colores">
-                <p class = "errorInput" id = "errorColor"></p>
                 <span>Stock</span>
+                <p id = "errorStock" class = "errorFront"></p>
                 <input type = "number" name = "stockProducto"  class = "stock">
-                <p class = "errorInput" id = "errorStock"></p>
                 <span>Precio</span>
+                <p id = "errorPrecio" class = "errorFront"></p>
                 <input type = "number" name = "precioProducto" class = "precio">
-                <p class = "errorInput" id = "errorPrecio"></p>
                 <span>Descuento</span>
+                <p id = "errorDescuento" class = "errorFront"></p>
                 <input type = "number" name = "descuentoProducto" class = "descuento">
-                <p class = "errorInput" id = "errorDescuento"></p>
                 <span>Cuotas</span>
+                <p id = "errorCuotas" class = "errorFront"></p>
                 <input type = "number" name = "cuotasProducto" class = "cuotas">
-                <p class = "errorInput" id = "errorCuotas"></p>
                 <div class="botones-creacion">
                 <button type="submit">Crear</button>
                 <button type="reset">Resetear</button>

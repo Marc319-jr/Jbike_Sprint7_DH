@@ -1382,7 +1382,7 @@ main {
 @media screen and (min-width:1241px)
 {
     main{
-        margin-top: 70px;
+        margin-top: 220px;
     }
 }
 
@@ -1518,11 +1518,14 @@ body .carrito .contenedor-productos{
 /*********************************creacion producto***************************/
 
 body .creacion{ 
-    margin: 20px;
+    margin: 30px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
     padding: 20px;
+    max-width: 800px;
 
 }
 
@@ -1611,6 +1614,9 @@ body .creacion .creacion-producto .botones-creacion button{
     }
 
 
-
-
-
+    .errorFront{
+        color: red;
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }

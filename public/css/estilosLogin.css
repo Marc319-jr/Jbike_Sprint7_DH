@@ -52,8 +52,8 @@ body{
     }
     .ingreso h3{
         text-align: center;
-        font-size: 1.8em;
-        margin-bottom: 0.8em;
+        font-size: 2.2em;
+        margin-bottom: 1.2em;
     }
     .ingreso input {
         margin-bottom: 1em;
@@ -74,6 +74,13 @@ body{
         outline: none;
     }
 
+
+    .form-login .errorFront{
+        color: red;
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
 
 
 
@@ -123,7 +130,7 @@ display: flex;
     background-color: rgb(255, 255, 255);
 }
 .form-container img{
-    margin: 3em 0;
+    margin: 2em 0;
  }
 .buttons a{
     display: block;
@@ -142,11 +149,11 @@ display: flex;
 }
 .ingreso h3{
     text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 0.8em;
+    font-size: 1.5em;
+    margin-bottom: 0.1em;
 }
 .ingreso input {
-    margin-bottom: 1em;
+    margin-bottom: 15px;
 }
 
 }

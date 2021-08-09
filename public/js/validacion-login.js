@@ -11,55 +11,87 @@ const expresiones = {
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
 }
 
-errors = {}
+let errores = {
+	email: "El email no puede estar vacio",
+	password : "La password no puede estar vacia",
+
+}
+
+let erroresVacio = {
+	email: "",
+	password : "",
+}
+
+//funciones de validacion 
+
+validarEmail = function(e)
+{
+	if(expresiones.correo.test(e.target.value))
+	{
+		console.log("Email correcto");
+		document.querySelector("#email").style.border = "none"
+		document.querySelector("#email").style.outline = "2px solid green"
+		errores.email = ""
+	}
+	else if(e.target.value == "")
+	{
+		errores.email  = "El campo email no puede estar vacio"
+		document.querySelector("#email").style.border = "none"
+		document.querySelector("#email").style.outline = "1px solid gray"
+		console.log(errores.email);
+	}
+	else
+	{
+		errores.email = "El formato debe ser Email"
+		document.querySelector("#email").style.border = "none"
+		document.querySelector("#email").style.outline = "2px solid red"
+		console.log(errores.email);
+	}
+
+}
+
+validarPass = function(e)
+{
+	if(e.target.value != "" && expresiones.password.test(e.target.value)) // caso correcto
+	{
+		console.log("password correcta");
+		document.querySelector("#password").style.border = "none"
+		document.querySelector("#password").style.outline = "2px solid green"
+		errores.password = ""
+	}	
+	else if(!expresiones.password.test(e.target.value) && e.target.value != "") // chekeamos que tiene 4-12 caracters
+	{
+		errores.password = "la contraseña tiene que ser entre 6 y 12 caracteres"
+		document.querySelector("#password").style.border = "none"
+		document.querySelector("#password").style.outline = "2px solid red"
+		console.log(errores.password);
+	}
+	else if(e.target.value == "") //caso vacio
+	{
+		errores.password = "la contraseña no puede estar vacia"
+		document.querySelector("#password").style.border = "none"
+		document.querySelector("#password").style.outline = "1px solid gray"
+		console.log(errores.password);
+	}
+}
+
+
+
+
 
 const validarFormulario = (e) => {
     switch(e.target.name){
         case "email":
-            if(e.target.value.includes("@") && e.target.value.includes(".com")){
-                console.log("email correcto");
-                document.querySelector("#email").style.outline = "2px solid green"
-                document.querySelector("#email").style.border = "none"
-                errors.email = ""
-            }
-            else
-            {
-                console.log("Email incorrecto");
-                document.querySelector("#email").style.outline = "2px solid red"
-                document.querySelector("#email").style.border = "none"
-                errors.email = "!El campo debe ser formato Email!"
-
-            }
-            if(e.target.value == "")
-            {
-                document.querySelector("#email").style.border = "1px solid black"
-                document.querySelector("#email").style.outline = "none"
-                errors.email = "!El campo no puede estar vacio!"
-            }
+            var error = document.querySelector("#emailError")
+			console.log("estoy validando el Email");
+			validarEmail(e);
+			error.innerText = errores.email
         break
         case "password":
-
-            if(expresiones.password.test(e.target.value)){
-                console.log("La contraseña esta en el rango correcto");
-                document.querySelector("#password").style.outline = "2px solid green"
-                document.querySelector("#password").style.border = "none"
-                errors.password = ""
-            }
-            else
-            {
-                console.log("Debes insertar una contraseña de 6-12 caracteres");
-                document.querySelector("#password").style.outline = "2px solid red"
-                document.querySelector("#password").style.border = "none"
-                errors.password = "!Debes insertar una contraseña de 6-12 caracteres!"
-
-            }
-
-            if(e.target.value == "")
-            {
-                document.querySelector("#password").style.border = "1px solid black"
-                document.querySelector("#password").style.outline = "none"
-                errors.password = "El campo no puede estar vacio"
-            }
+            var error = document.querySelector("#passError")
+			console.log("estoy Validando la pass");
+			validarPass(e);
+			error.innerText = errores.password
         break    
     }
 }
@@ -74,16 +106,21 @@ inputs.forEach((input) => {
 
 
 
-formulario.addEventListener("submit", function(e){
-    if(errors.password != "" && errors.email != "")
-    {
-    e.preventDefault()
-    }
-    else if(errors.password != "" && errors.email == ""){
-        e.preventDefault()
-        document.querySelector(".errorPass").innerHTML = errors.password
-    }
-    
+formulario.addEventListener("submit" , (e) => {
+	console.log(errores == erroresVacio)
+	if(JSON.stringify(errores) != JSON.stringify(erroresVacio))
+	{
+		console.log("hay errores");
+		console.log(errores);
+		console.log(erroresVacio)
+		e.preventDefault()
+	}
+	else
+	{
+		console.log("no hay errores sigo");
+	}
+	
+
 })
 
 

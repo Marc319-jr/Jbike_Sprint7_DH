@@ -11,13 +11,22 @@ let errores = {
 	imagen: "Debes seleccionar una imagen"
 }
 
+let erroresVacio = {
+	nombre: "",
+	email: "",
+	password : "",
+	confrimPass: "",
+	telefono: "",
+	imagen: ""
+}
+
 //expresiones para compara los campos
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{6,12}$/, // 6 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+	telefono: /^\d{10,10}$/ // 7 a 14 numeros.
 }
 
 //declaracion y capturacion de variables
@@ -35,7 +44,7 @@ validarNombre = function(e)
 		console.log("nombre correcto");
 		document.querySelector("#nombreUsuario").style.border = "none"
 		document.querySelector("#nombreUsuario").style.outline = "2px solid green"
-		delete errores.nombre
+		errores.nombre = ""
 	}
 	else if(e.target.value == "")
 	{
@@ -59,16 +68,18 @@ validarNombre = function(e)
 		document.querySelector("#nombreUsuario").style.border = "none"
 		document.querySelector("#nombreUsuario").style.outline = "2px solid red"
 		console.log(errores.nombre);
+		
 	}	
+
 }
 validarEmail = function(e)
 {
-	if(e.target.value.includes("@") && e.target.value.includes(".com"))
+	if(expresiones.correo.test(e.target.value))
 	{
 		console.log("Email correcto");
 		document.querySelector("#email").style.border = "none"
 		document.querySelector("#email").style.outline = "2px solid green"
-		delete errores.email
+		errores.email = ""
 	}
 	else if(e.target.value == "")
 	{
@@ -93,7 +104,7 @@ validarPass = function(e)
 		console.log("password correcta");
 		document.querySelector("#password").style.border = "none"
 		document.querySelector("#password").style.outline = "2px solid green"
-		delete errores.password
+		errores.password = ""
 	}	
 	else if(!expresiones.password.test(e.target.value) && e.target.value != "") // chekeamos que tiene 4-12 caracters
 	{
@@ -123,11 +134,11 @@ confirmarPass = function(e){
 		console.log("contraseñas matchean");
 		document.querySelector("#passConfirm").style.border = "none"
 		document.querySelector("#passConfirm").style.outline = "2px solid green"
-		delete errores.confrimPass
+		errores.confrimPass = ""
 	}
 	else
 	{
-		errores.confrimPass = "El campo no puede quedar vacion"
+		errores.confrimPass = "El campo no puede quedar vacio"
 		document.querySelector("#passConfirm").style.border = "none"
 		document.querySelector("#passConfirm").style.outline = "1px solid gray"
 		console.log(errores.confrimPass);
@@ -140,11 +151,11 @@ validarTelefono = function(e)
 		console.log("Numero bueno");
 		document.querySelector("#telefono").style.border = "none"
 		document.querySelector("#telefono").style.outline = "2px solid green"
-		delete errores.telefono
+		errores.telefono = ""
 	}
 	else if(e.target.value != "" && !expresiones.telefono.test(e.target.value))
 	{
-		errores.telefono  = "El numero debe contener 7-14 numeros"
+		errores.telefono  = "El numero debe contener 10 numeros"
 		document.querySelector("#telefono").style.border = "none"
 		document.querySelector("#telefono").style.outline = "2px solid red"
 		console.log(errores.telefono);
@@ -160,17 +171,22 @@ validarTelefono = function(e)
 }
 validarTipoDeImagen = function(e)
 {
-	//consultar Mati
-	if(e.target.value == "")
+	if(e.target.value.includes(".jpg")  || e.target.value.includes(".jpeg") || e.target.value.includes(".png"))
 	{
-		errores.imagen = "La imagen no puede estar vacia"
-		console.log(errores.imagen);
+		console.log("Imagen valida");
+        errores.imagen = ""
+	}
+	else if(e.target.value == "")
+	{
+		console.log("Imagen vacio");
+		errores.imagen = "La imagen no debe quedar vacia"
 	}
 	else
 	{
-		console.log("La imagen no esta vacio, aun tengo que ver si el archivo es un imagen");
-		delete errores.imagen
+		console.log("Imagen no vacia pero invalida");
+		errores.imagen = "Las extensiones permitidas son: .jpg , .jpeg , .png"
 	}
+
 }
 validarGenero = function()
 {
@@ -183,28 +199,40 @@ validarGenero = function()
 validarFormulario = (e) => {
 	switch(e.target.name){
 		case "nombreUsuario":
+			var error = document.querySelector("#nombreError")
 			console.log("estoy validando el nombre");
 			validarNombre(e);
+			error.innerText = errores.nombre
 			break;
 		case "emailUsuario":
+			var error = document.querySelector("#emailError")
 			console.log("estoy validando el Email");
 			validarEmail(e);
+			error.innerText = errores.email
 			break;
 		case "passwordUsuario":
+			var error = document.querySelector("#passError")
 			console.log("estoy Validando la pass");
 			validarPass(e);
+			error.innerText = errores.password
 			break;
 		case "confirmarPass":
+			var error = document.querySelector("#confrimpassError")
 			console.log("Estoy confrimando la password");
 			confirmarPass(e);
+			error.innerText = errores.confrimPass
 			break;
 		case "telefono":
+			var error = document.querySelector("#phoneError")
 			console.log("Estoy validando el numero de telefono");
 			validarTelefono(e);
+			error.innerText = errores.telefono
 			break;
 		case "imagen": 
+			var error = document.querySelector("#imageError")
 			console.log("Estoy validando tipo de imagen");
 			validarTipoDeImagen(e);
+			error.innerText = errores.imagen
 			break;
 	}
 }
@@ -224,16 +252,20 @@ genero.addEventListener("click" , validarGenero)
 
 //hasta que no se valida todo no seguimos
 formulario.addEventListener("submit" , (e) => {
-
-	if(JSON.stringify(errores) == '{}')
+	console.log(errores == erroresVacio)
+	if(JSON.stringify(errores) != JSON.stringify(erroresVacio))
 	{
-		console.log("no hay errores" );
+		console.log("hay errores");
+		console.log(errores);
+		console.log(erroresVacio)
+		e.preventDefault()
 	}
 	else
 	{
-		console.log("hay errores");
-		e.preventDefault()
-		console.log(errores);
-	}	
+		console.log("no hay errores sigo");
+	}
+	
+
 })
+
 })

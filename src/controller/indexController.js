@@ -18,6 +18,10 @@ const controller = {
         }
 
         res.render('../src/views/index', {'productos':productos , 'user': req.session.userLogged});
+    },
+
+    contacto: (req,res) => {
+        res.render("../src/views/contacto.ejs")
     }
 }
 

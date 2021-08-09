@@ -63,10 +63,10 @@ const controller = {
             else
             {
                 console.log("Algo esta mal");
-                res.render("../src/views/users/login1" , {errores: {email: {msg:'La contraseña es incorrecta'}}});
+                res.render("../src/views/users/login1" , {errores: {email: {msg:'Los datos son invalidos'}}});
             }
         }
-        res.render('../src/views/users/login1' , {errores: {email: {msg: "No existe tal usuario"}}})
+        res.render('../src/views/users/login1' , {errores: {email: {msg: "Los datos son invalidos"}}})
     },
 
     logout: (req,res) => {
