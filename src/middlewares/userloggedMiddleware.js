@@ -26,7 +26,6 @@ function userloggedMiddleware(req,res,next){
     }
 
    
-
     next();
 
 }

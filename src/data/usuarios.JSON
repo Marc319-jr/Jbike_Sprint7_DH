@@ -95,5 +95,15 @@
   "telefono": "1171624859",
   "genero": "Mujer",
   "imagen": "usuario-1628547788569.png"
+ },
+ {
+  "id": 11,
+  "nombreUsuario": "Marcelo sznek",
+  "emailUsuario": "marcelo.sznek@gmail.com",
+  "passwordUsuario": "$2a$10$wN1VFV1aslsrqUAo3QW7NOYAc8gP4ahliKBxxDMkUa7nLmpsfEtfy",
+  "confirmarPass": "123456",
+  "telefono": "1171624859",
+  "genero": "Hombre",
+  "imagen": "usuario-1629340819335.jpg"
  }
 ]
